@@ -10,15 +10,15 @@ export async function POST(req) {
         let {name,rollno} = await req.json()
 
       let student = Student({
-        name, rollno
+        name,rollno
       })
 
       let newStudent = await student.save()
 
       return NextResponse.json({
-        success: true,
-        student: newStudent,
-      }, { status: 200 });
+        success:true,
+        newStudent
+      })
     } catch (error) {
         return NextResponse.json({
             message: error.message || "An error occurred",
@@ -26,7 +26,6 @@ export async function POST(req) {
     }
     
 }
-
 
 export async function GET(req){
   await dbConnect()

@@ -5,7 +5,7 @@ const dbConnect = async () => {
     return;
   }
   try {
-    await mongoose.connect(process.env.DATABASE_URL);
+    await mongoose.connect("mongodb+srv://mazhar:mazhar123@savoy.5nro6.mongodb.net/");
     console.log("Mongodb is Now Connected");
   } catch (error) {
     console.log(error, "Error From Mongodb Connection Error");
