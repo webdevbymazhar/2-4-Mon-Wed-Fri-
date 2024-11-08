@@ -40,3 +40,22 @@ export async function GET(req){
     }, { status: 400 });
   }
 }
+
+
+export async function DELETE(req) {
+
+  try {
+     let {id} = await req.json()
+     
+     await Student.findByIdAndDelete(id)
+
+     return NextResponse.json({
+      message : "Student deleted successfully"
+     },{status:200})
+  } catch (error) {
+    return NextResponse.json({
+      message : error.message
+    },{status:400})
+  }
+  
+}
